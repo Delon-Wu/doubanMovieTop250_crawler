@@ -9,7 +9,7 @@ import re
 import sqlite3
 from getHTML import get_html
 from parseHTML import parse as parse_html
-from saveData import saveData
+from saveData import save_data
 
 
 def main():
@@ -17,10 +17,11 @@ def main():
     base_url = "https://movie.douban.com/top250?start="
     result_list = []
     for i in range(0, 10):
+        print(">>读取第%d页<<" % (i + 1))
         html = get_html(base_url+str(i*25))
         result_list.extend(parse_html(html))
         # print('parse_result%d::'%i, parse_result)
-    saveData(result_list)
+    save_data(result_list)
 
     # try:
     #     lest_html_len = len(html)

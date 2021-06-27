@@ -17,7 +17,6 @@ def get_html(url="http://httpbin.org", data={}, method="GET"):
         req = urllib.request.Request(url, data, headers=head, method=method)
     else:
         req = urllib.request.Request(url, headers=head, method=method)
-    print('-'*30, data, method)
     try:
         response = urllib.request.urlopen(req)
         html = response.read().decode("utf-8")
